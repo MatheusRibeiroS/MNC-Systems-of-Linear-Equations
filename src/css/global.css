@@ -1,0 +1,15 @@
+:root {
+  --primary: #006eff;
+  --primary-dark: #003f92;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
