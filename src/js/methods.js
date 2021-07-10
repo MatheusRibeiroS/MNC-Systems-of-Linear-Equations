@@ -72,4 +72,70 @@ const PartialPivoGauss = (A, b) => {
     }
 };
 
+const TotalPivoGauss = (A, b) => {
+    let xPositon = [];
+    for (let i = 0; i < n; i++) {
+        xPositon.push(i);
+    }
+    for (let i = 0; i < n; i++) {
+        let line = i, column = i;
+        for (let j = i + 1; j < n; j++) {
+            for (let k = i + 1; k < n; k++) {
+                if (Math.abs(A[j][k]) > Math.abs(A[line][column])) {
+                    line = j;
+                    column = k;
+                }
+            }
+        }
+        if (line != i) {
+            let aux;
+            aux = b[i];
+            b[i] = b[column];
+            b[column] = aux;
+            for (let j = i; j < n; j++) {
+                aux = A[i][j];
+                A[i][j] = A[line][j];
+                A[line][j] = aux;
+            }
+        }
+        if (column != i) {
+            let aux;
+            aux = xPositon[i];
+            xPositon[i] = xPositon[column];
+            xPositon[column] = aux;
+            for (let j = 0; j < n; j++) {
+                aux = A[j][i];
+                A[j][i] = A[j][column];
+                A[j][column] = aux;
+            }
+        }
+        for (let j = i + 1; j < n; j++) {
+            let m = A[j][i] / A[i][i];
+            for (let k = i; k < n; k++) {
+                A[j][k] -= A[i][k] * m;
+            }
+            b[j] -= b[i] * m;
+        }
+    }
+    for (let i = 0; i < n; i++) {
+        if (A[i][i] == 0) { // o sistema é impossível de ser resolvido pelo método de gauss com pivotamento total pois o pivo é zero
+            return;
+        }
+    }
+    let x = [];
+    for (let i = 0; i < n; i++) {
+        x.push(null);
+    }
+    for (let i = n - 1; i > -1; i--) {
+        let resultado = b[i];
+        for (let j = i + 1; j < n; j++) {
+            resultado -= x[xPositon[j]] * A[i][j];
+        }
+        x[xPositon[i]] = resultado / A[i][i];
+    }
+    for (let i = 1; i <= n; i++) {
+        //  console.log();
+}
+};
+
 
