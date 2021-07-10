@@ -1,0 +1,116 @@
+div.title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Buttons Style */
+
+div.buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.btn {
+  color: #ffffff;
+  background-color: #0099ff;
+  border: none;
+  border-radius: 2px;
+  padding: 5px 10px;
+  font-size: 16px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #0072be;
+}
+
+.btn.submit {
+  width: 100%;
+  height: 3em;
+  margin: 0;
+  font-weight: bold;
+}
+
+/* Checkbox Style */
+
+.container {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  border-radius: 2px;
+  padding: 0px 10px 0px 30px;
+  line-height: 30px;
+  background-color: #2196f3;
+  color: white;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.container:hover {
+  background-color: #0072be;
+}
+
+.checkmark {
+  margin: 1px 2px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Só para verificar a border */
+.options-menu {
+  margin: 0 0 1em 0;
+  padding: 1em;
+  border-radius: 10px;
+  background-color: #eee;
+}
+
+.container .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.radio-methods {
+  margin: 1em 0;
+}
+
+.divider-methods {
+  padding: 1em;
+  font-weight: bold;
+}
+
+div.options-menu {
+  color: black;
+}
