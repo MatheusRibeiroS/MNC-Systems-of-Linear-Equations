@@ -31,14 +31,18 @@
             style="width: 100%; margin: 0;" oninput="resize()">
         </div>
         <!-- Botões para cálculo -->
-        <div class="buttons">
-          <button class="btn" id="button-resize" onclick="resize()"><i class="fas fa-expand-alt"></i></button>
+        <div class="buttons" style="margin-bottom: 1em;">
+          <button class="btn" id="button-resize" onclick="info()"><i class="fas fa-file-alt"></i></button>
           <button class="btn" id="button-info"><i class="fas fa-info-circle"></i></button>
           <label class="container" style="font-weight: bold;">
             Completar com zero
             <input type="checkbox" id='zero' checked>
             <span class="checkmark"></span>
           </label>
+        </div>
+
+        <!-- Matriz -->
+        <div class="matrix" id="config-matrix" style="width: 100%; overflow: auto;">
         </div>
       </div>
 
@@ -49,44 +53,50 @@
 
           <ul>
             <li class="switcher-methods">
-              <label for="simpleGauss" class="radio">
-                <input type="radio" value=1 id="simpleGauss" name="methods" onclick="load()" />
+              <label class="container" for="simpleGauss" class="radio">
                 Gauss - Simples
+                <input type="radio" value=1 id="simpleGauss" name="methods" onclick="load()" />
+                <span class="checkmark"></span>
               </label>
             </li>
 
             <li class="switcher-methods">
-              <label for="partialpivotGauss" class="radio">
-                <input type="radio" value=2 id="partialpivotGauss" name="methods" onclick="load()" />
+              <label class="container" for="partialpivotGauss" class="radio">
                 Gauss - Pivotamento Parcial
+                <input type="radio" value=2 id="partialpivotGauss" name="methods" onclick="load()" />
+                <span class="checkmark"></span>
               </label>
             </li>
 
             <li class="switcher-methods">
-              <label for="pivotGauss" class="radio">
-                <input type="radio" value=3 id="pivotGauss" name="methods" onclick="load()" />
+              <label class="container" for="pivotGauss" class="radio">
                 Gauss - Pivotamento Total
+                <input type="radio" value=3 id="pivotGauss" name="methods" onclick="load()" />
+                <span class="checkmark"></span>
               </label>
             </li>
 
             <li class="switcher-methods">
-              <label for="compactGauss" class="radio">
-                <input type="radio" value=4 id="compactGauss" name="methods" onclick="load()" />
+              <label class="container" for="compactGauss" class="radio">
                 Gauss - Compacto
+                <input type="radio" value=4 id="compactGauss" name="methods" onclick="load()" />
+                <span class="checkmark"></span>
               </label>
             </li>
 
             <li class="switcher-methods">
-              <label for="decompositionLU" class="radio">
-                <input type="radio" value=5 id="decompositionLU" name="methods" onclick="load()" />
+              <label class="container" for="decompositionLU" class="radio">
                 Decomposition LU
+                <input type="radio" value=5 id="decompositionLU" name="methods" onclick="load()" />
+                <span class="checkmark"></span>
               </label>
             </li>
 
             <li class="switcher-methods">
-              <label for="Cholesky" class="radio">
-                <input type="radio" value=6 id="Cholesky" name="methods" onclick="load()" />
+              <label class="container" for="Cholesky" class="radio">
                 Cholesky
+                <input type="radio" value=6 id="Cholesky" name="methods" onclick="load()" />
+                <span class="checkmark"></span>
               </label>
             </li>
           </ul>
@@ -95,16 +105,18 @@
           <span class="divider-methods">Métodos Iterativos</span>
           <ul>
             <li class="switcher-methods">
-              <label for="Jacobi" class="radio">
-                <input type="radio" value=7 id="Jacobi" name="methods" onclick="load()" />
+              <label class="container" for="Jacobi" class="radio">
                 Jacobi-Richardson
+                <input type="radio" value=7 id="Jacobi" name="methods" onclick="load()" />
+                <span class="checkmark"></span>
               </label>
             </li>
 
             <li class="switcher-methods">
-              <label for="gaussSeidel" class="radio">
-                <input type="radio" value=8 id="gaussSeidel" name="methods" onclick="load()" />
+              <label class="container" for="gaussSeidel" class="radio">
                 Gauss-Seidel
+                <input type="radio" value=8 id="gaussSeidel" name="methods" onclick="load()" />
+                <span class="checkmark"></span>
               </label>
             </li>
           </ul>
@@ -124,6 +136,8 @@
   </div>
 
   <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" data-auto-a11y="true"></script>
+  <script src="./src/js/functions.js"></script>
+  <script src="./src/js/methods.js"></script>
 </body>
 
 </html>
