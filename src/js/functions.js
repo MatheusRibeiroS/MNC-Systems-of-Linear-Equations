@@ -16,16 +16,15 @@ function formattingExpression(input) {
     .replace(/\e/gi, "Math.E");
 }
 
-/** 
- * Builds visual matrix in html
- * 
+/**
+ * Builds visual matrix in HTML
  * */
 const resize = () => {
   const n = parseInt(document.querySelector("#n").value);
   const context = document.querySelector("#config-matrix");
   context.innerHTML = null;
 
-  if (n && n > 0) {
+  if (n && 20 > n > 0) {
     let row = document.createElement(`tr`);
     let cell = document.createElement(`th`);
     cell.innerText = `A`;
