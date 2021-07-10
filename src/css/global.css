@@ -1,6 +1,8 @@
 :root {
   --primary: #006eff;
   --primary-dark: #003f92;
+  background-color: #111;
+  color: white;
 }
 
 * {
@@ -11,5 +13,33 @@
 
 html {
   scroll-behavior: smooth;
+  font-family: "Montserrat", sans-serif;
 }
 
+input {
+  border: none;
+  background: #fafafa;
+  color: 000;
+  margin: 0 1em 0 0;
+  border-radius: 2px;
+  padding: 10px;
+}
+
+button {
+  margin: 0 1em 0 0;
+}
+
+ul {
+  list-style: none;
+  margin: 1em;
+  overflow: auto;
+}
+
+.main {
+  margin: 1em;
+}
+
+/* Radio */
+.radio {
+  cursor: pointer;
+}
