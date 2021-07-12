@@ -52,11 +52,11 @@ const resize = () => {
       row.appendChild(cell);
       for (let j = 1; j <= n; j++) {
         cell = document.createElement(`th`);
-        cell.innerHTML = `<input type="number" id="a${i}${j}">`;
+        cell.innerHTML = `<input type="number">`;
         row.appendChild(cell);
       }
       cell = document.createElement(`th`);
-      cell.innerHTML = `<input type="number" id="b${i}">`;
+      cell.innerHTML = `<input type="number">`;
       row.appendChild(cell);
       tableBody.appendChild(row);
     }
@@ -81,7 +81,7 @@ const calculate = () => {
       break;
     case 4:
       // Método de Gauss - Compacto
-      CompactGauss
+      CompactGauss();
       break;
     case 5:
       // Decomposiçào LU
@@ -102,4 +102,19 @@ const calculate = () => {
     default:
       break;
   }
+};
+
+const getA = () => {
+  let a = [],
+    b = [];
+
+  let row = document.getElementsByTagName("table")[0].rows;
+  for (let i = 1; i < row.length; i++) {
+    for (let j = 1; j <= row.length; j++) {
+      b.push(row[i].cells[j].firstChild.value);
+    }
+    a.push(b);
+    b = [];
+  }
+  return a;
 };
