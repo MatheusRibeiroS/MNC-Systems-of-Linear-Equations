@@ -69,27 +69,34 @@ const calculate = () => {
   switch (document.querySelector('input[name="methods"]:checked').value) {
     case 1:
       // Método de Gauss - Simples
+      simpleGauss();
       break;
     case 2:
       // Método de Gauss - Pivotamento Parcial
+      PartialPivoGauss();
       break;
     case 3:
       // Método de Gauss - Pivotamento Total
+      TotalPivoGauss();
       break;
     case 4:
       // Método de Gauss - Compacto
+      CompactGauss
       break;
     case 5:
       // Decomposiçào LU
+      LU();
       break;
     case 6:
       // Cholesky
+      Cholesky();
       break;
     case 7:
       // Jacobi-Richardson
       break;
     case 8:
       // Gauss-Seidel
+      GaussSeidel();
       break;
 
     default:

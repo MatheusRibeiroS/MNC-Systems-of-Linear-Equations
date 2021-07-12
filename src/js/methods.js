@@ -2,7 +2,8 @@ const simpleGauss = (A, b) => {
 
     for (let i = 0; i < n; i++) {
         let pivo = A[i][i];
-        if (pivo == 0) { // o sistema é impossível de ser resolvido pelo método de gauss simples pois o pivo é zero
+        if (pivo == 0) {
+            console.log("O sistema é impossível de ser resolvido pelo método de gauss simples pois o pivo é zero.");
             return;
         }
         for (let j = i + 1; j < n; j++) {
@@ -118,7 +119,8 @@ const TotalPivoGauss = (A, b) => {
         }
     }
     for (let i = 0; i < n; i++) {
-        if (A[i][i] == 0) { // o sistema é impossível de ser resolvido pelo método de gauss com pivotamento total pois o pivo é zero
+        if (A[i][i] == 0) {
+            console.log("O sistema é impossível de ser resolvido pelo método de gauss com pivotamento total pois o pivo é zero");
             return;
         }
     }
@@ -141,7 +143,8 @@ const TotalPivoGauss = (A, b) => {
 const CompactGauss = (A, b) => {
     for (let i = 0; i < n; i++) {
         let pivo = A[i][i];
-        if (pivo == 0) { // o sistema é impossível de ser resolvido pelo método de gauss compacto pois o pivo é zero
+        if (pivo == 0) {
+            console.log("O sistema é impossível de ser resolvido pelo método de gauss compacto pois o pivo é zero");
             return;
         }
         for (let j = i + 1; j < n; j++) {
@@ -180,7 +183,8 @@ const LU = (A, b) => {
     }
     for (let i = 0; i < n; i++) {
         let pivo = A[i][i];
-        if (pivo == 0) { // o sistema é impossível de ser resolvido pelo método LU pois o pivo é zero
+        if (pivo == 0) {
+            console.log("O sistema é impossível de ser resolvido pelo método LU pois o pivo é zero");
             return;
         }
         for (let j = i + 1; j < n; j++) {
@@ -215,7 +219,8 @@ const LU = (A, b) => {
 const Cholesky = (A, b) => {
     for (let i = 0; i < n; i++) {
         for (let j = i + 1; j < n; j++) {
-            if (A[i][j] != A[j][i]) { // a matriz A não é simétrica
+            if (A[i][j] != A[j][i]) {
+                console.log("A matriz A não é simétrica");
                 return;
             }
         }
@@ -229,7 +234,8 @@ const Cholesky = (A, b) => {
     }
     for (let i = 0; i < n; i++) {
         let pivo = A[i][i];
-        if (pivo == 0) { // o sistema é impossível de ser resolvido pelo método de Cholesky pois o pivo é zero
+        if (pivo == 0) {
+            console.log("O sistema é impossível de ser resolvido pelo método de Cholesky pois o pivo é zero");
             return;
         }
         for (let j = i + 1; j < n; j++) {
@@ -260,5 +266,92 @@ const Cholesky = (A, b) => {
         // console.log();
     }
 };
+
+
+const Jacobi = (A, b) => {
+    let x = new Array(n);
+    let iterations = parseInt(document.getElementById(`iterations`).value)
+    let error = parseFloat(document.getElementById(`Error`).value);
+
+    for (let i = 0; i < n; i++) {
+        x[i] = parseFloat(document.getElementById(`xe${i}`).value);
+        if (isNaN(x[i])) {
+            alert("Insira valores válidos para a estimativa da solução.");
+            return;
+        }
+    }
+    let xaux = new Array(n);
+    let aux;
+    for (; iterations > 0; iterations--) {
+        for (let i = 0; i < n; i++) {
+            xaux[i] = x[i];
+        }
+        for (let i = 0; i < n; i++) {
+            aux = b[i];
+            for (let j = 0; j < n; j++) {
+                if (j != i) {
+                    aux -= xaux[j] * A[i][j];
+                }
+            }
+            x[i] = aux / A[i][i];
+        }
+        aux = 0;
+        for (let i = 0; i < n; i++) {
+            aux = Math.max(aux, Math.abs(x[i] - xaux[i]));
+        }
+        if (aux < error) {
+            break;
+        }
+    }
+    for (let i = 1; i <= n; i++) {
+        // console.log();
+    }
+};
+
+const GaussSeidel = (A, b) => {
+    let x = new Array(n);
+    let iterations = parseInt(document.getElementById(`iterations`).value);
+    let error = parseFloat(document.getElementById(`error`).value);
+    if (isNaN(iterations) || isNaN(error)) {
+        alert("Insira valores válidos para o número de iterações e o error máximo.");
+        return;
+    }
+    for (let i = 0; i < n; i++) {
+        x[i] = parseFloat(document.getElementById(`xe${i}`).value);
+        if (isNaN(x[i])) {
+            alert(`Insira valores válidos para a estimativa da solução.`);
+            return;
+        }
+    }
+    let x2 = new Array(n);
+    let aux;
+
+    for (; iterations > 0; iterations--) {
+        for (let i = 0; i < n; i++) {
+            x2[i] = x[i];
+        }
+        for (let i = 0; i < n; i++) {
+            aux = b[i];
+            for (let j = 0; j < i; j++) {
+                aux -= A[i][j] * x[j];
+            }
+            for (let j = i + 1; j < n; j++) {
+                aux -= A[i][j] * x2[j];
+            }
+            xi[i] = aux / A[i][i];
+        }
+        aux = 0;
+        for (let i = 0; i < n; i++) {
+            aux = Math.max(aux, Math.abs(xi[i] - x2[i]));
+        }
+        if (aux < error) {
+            break;
+        }
+    }
+    for (let i = 1; i <= n; i++) {
+        // console.log();
+    }
+};
+
 
 
