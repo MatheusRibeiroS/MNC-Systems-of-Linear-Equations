@@ -118,3 +118,5 @@ const getA = () => {
   }
   return a;
 };
+
+const getB = (a) => a.map((elem) => elem[elem.length - 1]); 
