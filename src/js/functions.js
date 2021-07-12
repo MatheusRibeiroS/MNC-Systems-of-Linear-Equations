@@ -104,19 +104,21 @@ const calculate = () => {
   }
 };
 
-const getA = () => {
-  let a = [],
-    b = [];
+const getMatrices = () => {
+  let matrix = [],
+    b = [], a = [],
+    aux = [];
 
   let row = document.getElementsByTagName("table")[0].rows;
   for (let i = 1; i < row.length; i++) {
     for (let j = 1; j <= row.length; j++) {
-      b.push(row[i].cells[j].firstChild.value);
+      aux.push(row[i].cells[j].firstChild.value);
     }
-    a.push(b);
-    b = [];
+    matrix.push(aux);
+    aux = [];
   }
-  return a;
-};
+  b = matrix.map((elem) => elem.pop());
+  a = matrix;
 
-const getB = (a) => a.map((elem) => elem[elem.length - 1]); 
+  return { a: a, b: b };
+};
