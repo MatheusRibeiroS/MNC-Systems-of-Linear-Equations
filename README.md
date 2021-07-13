@@ -23,3 +23,7 @@ Tendo as seguintes funcionalidades
 
 1. Jacobi-Richardson
 2. Gauss- Seidel
+
+### Como usar
+
+Extraindo a pasta compactada, você pode executar o arquivo `index.html` e poderá usufruir das funções desta calculadora.
