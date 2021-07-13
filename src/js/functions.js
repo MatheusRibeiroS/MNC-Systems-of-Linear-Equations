@@ -21,8 +21,9 @@ function formattingExpression(input) {
  * */
 const resize = () => {
   const n = parseInt(document.querySelector("#n").value);
-  const context = document.querySelector("#config-matrix");
-  context.innerHTML = null;
+  const contextInput = document.querySelector("#config-matrix");
+  const contextOutput = document.querySelector("#output-matrix");
+  contextInput.innerHTML = null;
 
   if (n && 20 > n > 0) {
     let tableBody = document.createElement("tbody");
@@ -61,7 +62,29 @@ const resize = () => {
       tableBody.appendChild(row);
     }
     table.appendChild(tableBody);
-    context.appendChild(table);
+    contextInput.appendChild(table);
+
+    // Output
+    row = document.createElement(`tr`);
+    cell = document.createElement(`th`);
+    cell.innerText = `X`;
+    cell.className = "matrix-label";
+    row.appendChild(cell);
+    for (let i = 1; i <= n; i++) {
+      let row = document.createElement(`tr`);
+      cell = document.createElement(`th`);
+      cell.innerText = `${i}`;
+      cell.className = "matrix-label";
+      row.appendChild(cell);
+    }
+
+    for (let i = 1; i <= n; i++) {
+      cell = document.createElement(`th`);
+      cell.id = `x${i}`;
+      cell.innerHTML = '<span class="output-x">waiting</span>';
+      row.appendChild(cell);
+    }
+    table.appendChild(row);
   }
 };
 
@@ -106,7 +129,8 @@ const calculate = () => {
 
 const getMatrices = () => {
   let matrix = [],
-    b = [], a = [],
+    b = [],
+    a = [],
     aux = [];
 
   let row = document.getElementsByTagName("table")[0].rows;
