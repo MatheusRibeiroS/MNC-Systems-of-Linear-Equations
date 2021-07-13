@@ -13,9 +13,9 @@ Tendo as seguintes funcionalidades
 ### Diretos 
 
 1. Gauss - simples
-2. Guass - pivotamento parcial
-3. Guass - pivotamento total
-4. Guass compacto
+2. Gauss - pivotamento parcial
+3. Gauss - pivotamento total
+4. Gauss compacto
 5. Decomposição L.U
 6. Cholesky
 
