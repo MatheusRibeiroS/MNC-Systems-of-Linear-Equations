@@ -89,37 +89,39 @@ const resize = () => {
 };
 
 const calculate = () => {
+  let { a, b } = getMatrices();
   switch (document.querySelector('input[name="methods"]:checked').value) {
     case 1:
       // Método de Gauss - Simples
-      simpleGauss();
+      simpleGauss(a, b);
       break;
     case 2:
       // Método de Gauss - Pivotamento Parcial
-      PartialPivoGauss();
+      PartialPivoGauss(a, b);
       break;
     case 3:
       // Método de Gauss - Pivotamento Total
-      TotalPivoGauss();
+      TotalPivoGauss(a, b);
       break;
     case 4:
       // Método de Gauss - Compacto
-      CompactGauss();
+      CompactGauss(a, b);
       break;
     case 5:
       // Decomposiçào LU
-      LU();
+      LU(a, b);
       break;
     case 6:
       // Cholesky
-      Cholesky();
+      Cholesky(a, b);
       break;
     case 7:
+      Jacobi(a, b);
       // Jacobi-Richardson
       break;
     case 8:
       // Gauss-Seidel
-      GaussSeidel();
+      GaussSeidel(a, b);
       break;
 
     default:
